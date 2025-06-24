@@ -33,5 +33,5 @@ After making changes to the nginx config, update the symlink and restart nginx:
 sudo ln -s /etc/nginx/sites-available/portfolio /etc/nginx/sites-enabled/
 
 # Restart nginx to apply changes
-sudo service nginx restart
+sudo nginx -s reload
 ```
