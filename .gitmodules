@@ -1,0 +1,9 @@
+[submodule "cta_tracker"]
+	path = cta_tracker
+	url = https://github.com/bcentner/cta_tracker.git
+[submodule "portfolio"]
+	path = portfolio
+	url = https://github.com/bcentner/portfolio.git
+[submodule "stream-finder"]
+	path = stream-finder
+	url = https://github.com/bcentner/stream-finder.git
