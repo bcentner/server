@@ -2,6 +2,9 @@
 
 A comprehensive server setup to host various projects and applications.
 
+## Development
+TODO: https://localxpose.io/docs/tutorials/create-a-custom-domain-name
+
 ## 📋 Table of Contents
 
 - [Overview](#overview)
