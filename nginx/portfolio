@@ -1,10 +1,9 @@
 server {
-    listen 80;
-    server_name localhost;
+    listen 8000;
 
-    # Portfolio (default)
+    # Portfolio
     location / {
-        proxy_pass http://127.0.0.1:8000;
+        proxy_pass http://127.0.0.1:8001;
         proxy_set_header Host $host;
         proxy_set_header X-Real-IP $remote_addr;
         proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
@@ -20,23 +19,15 @@ server {
     
     # cta-tracker app
     location /cta-tracker/ {
-        proxy_pass http://127.0.0.1:8001/;
+        proxy_pass http://127.0.0.1:8002;
         proxy_set_header Host $host;
         proxy_set_header X-Real-IP $remote_addr;
         proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
         proxy_set_header X-Forwarded-Proto $scheme;
     }
 
-    # stream-finder static files
-    location /stream-finder/static/ {
-        alias /home/bcntnr/Desktop/openSource/server/stream-finder/static/;
-        expires 1y;
-        add_header Cache-Control "public, immutable";
-    }
-    
-    # stream-finder app
     location /stream-finder/ {
-        proxy_pass http://127.0.0.1:8002/;
+        proxy_pass http://127.0.0.1:8003;
         proxy_set_header Host $host;
         proxy_set_header X-Real-IP $remote_addr;
         proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;

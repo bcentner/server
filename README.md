@@ -73,7 +73,7 @@ poetry update
 poetry shell
 
 # Run a specific application (replace X with port number)
-gunicorn -w 1 -b localhost:800X wsgi:app
+gunicorn -w 1 -b localhost:800X wsgi:application
 ```
 
 **Common Ports:**
@@ -96,9 +96,6 @@ sudo nginx -t
 
 # Reload nginx to apply changes
 sudo nginx -s reload
-
-# Restart nginx completely
-sudo systemctl restart nginx
 ```
 
 ### Configuration Files
