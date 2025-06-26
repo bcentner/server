@@ -16,6 +16,13 @@ source venv/bin/activate
 gunicorn -w 1 -b localhost:8003 wsgi:application &
 deactivate
 
+# TODO: verify this is working
+# Start Letterboxd Recommender (venv)
+cd ../letterboxd-recommender
+source venv/bin/activate
+gunicorn -w 1 -b localhost:8004  wsgi:application &
+deactivate
+
 # Start Nginx
 sudo nginx
 
