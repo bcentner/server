@@ -122,9 +122,13 @@ Use LocalXpose to expose your local development server to the internet for testi
    loclx account login
    ```
 
+3. **Launch server**
+   ```bash
+   ./start_all.sh
+   ```
 3. **Create a tunnel**
    ```bash
-   loclx tunnel http --to localhost:8001
+   loclx tunnel http --to localhost:8000
    ```
 
 **Dashboard**: https://localxpose.io/dashboard/
