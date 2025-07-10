@@ -7,6 +7,6 @@
 [submodule "stream-finder"]
 	path = stream-finder
 	url = https://github.com/bcentner/stream-finder.git
-[submodule "letterbox-recommender"]
-	path = letterbox-recommender
+[submodule "letterboxd-recommender"]
+	path = letterboxd-recommender
 	url = https://github.com/bcentner/letterboxd-recommender.git
