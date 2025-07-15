@@ -1,6 +1,7 @@
 *.secrets
 stream-finder/token.txt
 logs/
+nohup.out
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# Run on boot: https://localxpose.io/docs/tutorials/access-your-raspberry-pi-remotely
+
+# ===================================DEPRECATED===================================================
 if ! command -v loclx > /dev/null 2>&1; then
   echo "Error: loclx (LocalXpose) is not installed or not in PATH. Exiting..."
   exit 1
@@ -7,6 +10,7 @@ fi
 
 # Start all services
 ./start_all.sh
+
 
 # Start LocalXpose tunnel for www.benportfolio.xyz to port 8000
 # Requires loclx to be installed and authenticated
