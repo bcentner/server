@@ -42,6 +42,11 @@ gunicorn -w 1 -b localhost:8004  wsgi:application > ../logs/letterboxd_recommend
 echo $! > ../logs/letterboxd_recommender.pid
 deactivate
 
+if ! command -v nginx > /dev/null 2>&1; then
+  echo "Error: nginx is not installed or not in PATH. Exiting..."
+  exit 1
+fi
+
 # Start Nginx
 sudo nginx
 

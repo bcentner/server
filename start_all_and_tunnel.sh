@@ -1,5 +1,10 @@
 #!/bin/bash
 
+if ! command -v loclx > /dev/null 2>&1; then
+  echo "Error: loclx (LocalXpose) is not installed or not in PATH. Exiting..."
+  exit 1
+fi
+
 # Start all services
 ./start_all.sh
 
