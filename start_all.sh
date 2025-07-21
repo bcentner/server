@@ -5,7 +5,9 @@ mkdir -p logs
 
 # Start CTA Tracker (Poetry)
 cd cta_tracker
-poetry run gunicorn -w 1 -b localhost:8002 wsgi:application > ../logs/cta_tracker.log 2>&1 &
+poetry run gunicorn -w 1 -b localhost:8002 wsgi:application \
+--access-logfile ../logs/cta_tracker_access.log \
+--error-logfile ../logs/cta_tracker_error.log &
 echo $! > ../logs/cta_tracker.pid
 
 # Start Portfolio (venv)
@@ -15,7 +17,9 @@ if [ ! -d "venv" ]; then
   exit 1
 fi
 source venv/bin/activate
-gunicorn -w 1 -b localhost:8001 wsgi:application > ../logs/portfolio.log 2>&1 &
+gunicorn -w 1 -b localhost:8001 wsgi:application \
+--access-logfile ../logs/portfolio_access.log \
+--error-logfile ../logs/portfolio_error.log &
 echo $! > ../logs/portfolio.pid
 deactivate
 
@@ -26,11 +30,12 @@ if [ ! -d "venv" ]; then
   exit 1
 fi
 source venv/bin/activate
-gunicorn -w 1 -b localhost:8003 wsgi:application > ../logs/stream_finder.log 2>&1 &
+gunicorn -w 1 -b localhost:8003 wsgi:application \
+--access-logfile ../logs/stream_finder_access.log \
+--error-logfile ../logs/stream_finder_error.log &
 echo $! > ../logs/stream_finder.pid
 deactivate
 
-# TODO: verify this is working
 # Start Letterboxd Recommender (venv)
 cd ../letterboxd-recommender
 if [ ! -d "venv" ]; then
@@ -38,7 +43,9 @@ if [ ! -d "venv" ]; then
   exit 1
 fi
 source venv/bin/activate
-gunicorn -w 1 -b localhost:8004  wsgi:application > ../logs/letterboxd_recommender.log 2>&1 &
+gunicorn -w 1 -b localhost:8004  wsgi:application \
+--access-logfile ../logs/letterboxd_recommender_access.log \
+--error-logfile ../logs/letterboxd_recommender_error.log &
 echo $! > ../logs/letterboxd_recommender.pid
 deactivate
 
